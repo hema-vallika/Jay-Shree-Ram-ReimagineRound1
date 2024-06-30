@@ -1,6 +1,8 @@
 
  const navbar = document.querySelector('.navbar ul');
  const menu = document.querySelector('.btn-one');
+
+ const card = document.querySelector('.card');
  let count=1;
    menu.addEventListener('click',()=>{
         if(count===1){
@@ -73,13 +75,40 @@ gsap.from("#page1 h2",{
     y:-100
 })
 
+gsap.from("#page2 .left_content",{
+    x:-150,
+    opacity:0,
+    scrollTrigger:{
+        trigger:"#page2 .left_content",
+        start:"top 70%",
+        end:"top 30%",
+        // markers:true,
+        scrub:1,
+    }
+
+})
+gsap.from("#page2 .right_content",{
+    x:150,
+    opacity:0,
+    scrollTrigger:{
+        trigger:"#page2 .right_content",
+        start:"top 70%",
+        end:"top 30%",
+        // markers:true,
+        scrub:1,
+    }
+
+})
+
+
+
 function scrolll(){
     var left=document.querySelector(".card-wrapper");
-    left.scrollBy(-320,0)
+    left.scrollBy(-(card.offsetWidth + 20),0)
 }
 function scrollr(){
     var right=document.querySelector(".card-wrapper");
-    right.scrollBy(320,0)
+    right.scrollBy((card.offsetWidth + 20),0)
 }
 
 
